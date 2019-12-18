@@ -17,7 +17,7 @@ func newWorker(config *Config, chainConfig *params.ChainConfig, engine consensus
 	go worker.taskLoop()
 ```
 
-## mainLoop函数
+## mainLoop 函数
 根据收到的消息生成封装任务
 消息如下：
 ```
@@ -36,3 +36,14 @@ w.chainSideSub.Err()
 
 
 - chainSideCh
+剔除掉重复的块->添加叔块->生成新的主链上的块
+
+- txsCh
+添加交易到pending中
+
+- exitCh:
+- txsSub.Err():
+- w.txsSub.Err()
+- w.chainHeadSub.Err()
+- w.chainSideSub.Err()
+系统退出。
