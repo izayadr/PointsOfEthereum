@@ -51,7 +51,15 @@ w.chainSideSub.Err()
 
 # commitTransaction
 调用ApplyTransaction（core/state_processor.go）
-	将交易状态写入state
+	将交易状态写入state，完成receipt的设置
+	```
+	// Set the receipt logs and create a bloom for filtering
+	receipt.Logs = statedb.GetLogs(tx.Hash())
+	receipt.Bloom = types.CreateBloom(types.Receipts{receipt})
+	receipt.BlockHash = statedb.BlockHash()
+	receipt.BlockNumber = header.Number
+	```
+
 将交易加入txs列表
-    
+将receipt加入receipts列表
 
