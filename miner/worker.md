@@ -40,6 +40,7 @@ w.chainSideSub.Err()
 
 - txsCh
 添加交易到pending中
+调用commitTransactions提交交易
 
 - exitCh:
 - txsSub.Err():
@@ -47,3 +48,10 @@ w.chainSideSub.Err()
 - w.chainHeadSub.Err()
 - w.chainSideSub.Err()
 系统退出。
+
+# commitTransaction
+调用ApplyTransaction（core/state_processor.go）
+	将交易状态写入state
+将交易加入txs列表
+    
+
